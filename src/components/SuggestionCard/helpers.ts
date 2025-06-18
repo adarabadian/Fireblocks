@@ -1,4 +1,5 @@
 import { categoryColors } from '../../utils/categoryColors';
+import { fadeInAnimation, hoverScale } from '../../styles/animations';
 
 // Helper function to get category colors with fallback
 export const getCategoryColors = (category: string) => {
@@ -20,8 +21,9 @@ export const getCategoryChipStyles = (category: string) => ({
 });
 
 // Helper function to create avatar icon styles
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const getAvatarIconStyles = (iconContainer: any) => ({
-  ...iconContainer,
+  ...(iconContainer || {}),
   width: 48,
   height: 48,
   fontSize: '1.5rem',
@@ -29,8 +31,11 @@ export const getAvatarIconStyles = (iconContainer: any) => ({
 });
 
 // Helper function to create card container styles
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const getCardContainerStyles = (glassmorphismCardSmall: any) => ({
-  ...glassmorphismCardSmall,
+  ...(glassmorphismCardSmall || {}),
+  ...fadeInAnimation,
+  ...hoverScale,
   flex: 1,
   p: 2.5,
   borderRadius: 3,

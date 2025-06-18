@@ -1,6 +1,7 @@
 import React from 'react';
 import { Card, CardContent } from '@mui/material';
 import { glassmorphismCard } from '../../styles/glassmorphism';
+import { fadeInAnimation } from '../../styles/animations';
 import type { WeatherData } from '../../types/weather';
 import LocationHeader from '../LocationHeader/LocationHeader';
 import TemperatureDisplay from '../TemperatureDisplay/TemperatureDisplay';
@@ -29,6 +30,7 @@ const WeatherDisplay: React.FC<WeatherDisplayProps> = ({ weatherData }) => {
       elevation={0}
       sx={{
         ...glassmorphismCard,
+        ...fadeInAnimation,
         height: '100%',
         display: 'flex',
         flexDirection: 'column',

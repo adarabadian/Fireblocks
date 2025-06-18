@@ -11,6 +11,11 @@ export const searchBarContainerSx = {
     inset 0 1px 0 rgba(255, 255, 255, 0.9)
   `,
   transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+  animation: 'slideInLeft 0.5s ease-out',
+  '@keyframes slideInLeft': {
+    '0%': { opacity: 0, transform: 'translateX(-30px)' },
+    '100%': { opacity: 1, transform: 'translateX(0)' },
+  },
   '&:hover': {
     transform: 'translateY(-1px)',
     boxShadow: `

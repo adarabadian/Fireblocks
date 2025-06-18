@@ -1,6 +1,7 @@
 import React from 'react';
 import { Card, CardContent, Box } from '@mui/material';
 import { glassmorphismCard } from '../../styles/glassmorphism';
+import { fadeInAnimation } from '../../styles/animations';
 import type { ActivitySuggestion } from '../../types/weather';
 import SuggestionsHeader from '../SuggestionsHeader/SuggestionsHeader';
 import SuggestionCard from '../SuggestionCard/SuggestionCard';
@@ -19,6 +20,7 @@ const ActivitySuggestions: React.FC<ActivitySuggestionsProps> = ({ suggestions }
       elevation={0}
       sx={{
         ...glassmorphismCard,
+        ...fadeInAnimation,
         height: '100%',
         display: 'flex',
         flexDirection: 'column',
