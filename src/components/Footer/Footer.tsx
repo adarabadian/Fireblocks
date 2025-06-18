@@ -1,4 +1,3 @@
-import React from "react";
 import { Box, Typography } from '@mui/material';
 
 export default function Footer() {
@@ -10,7 +9,6 @@ export default function Footer() {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        backdropFilter: 'blur(20px) saturate(180%)',
         borderRadius: '16px 16px 0 0',
         border: '1px solid rgba(255, 255, 255, 0.6)',
         borderBottom: 'none',

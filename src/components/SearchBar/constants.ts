@@ -1,0 +1,21 @@
+// Popular cities for autocomplete
+export const popularCities = [
+  'New York, United States',
+  'London, United Kingdom',
+  'Paris, France',
+  'Tokyo, Japan',
+  'Sydney, Australia',
+  'Los Angeles, California',
+  'Miami, Florida',
+  'Barcelona, Spain',
+  'Amsterdam, Netherlands',
+  'Berlin, Germany',
+  'Rome, Italy',
+  'Dubai, UAE',
+  'Singapore',
+  'Hong Kong',
+  'Toronto, Canada',
+  'Tel Aviv, Israel',
+  'Madrid, Spain',
+  'Stockholm, Sweden',
+]; 

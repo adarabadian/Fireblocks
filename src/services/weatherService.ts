@@ -4,6 +4,7 @@ import type {
   WeatherServiceResponse, 
   WeatherApiError 
 } from '../types/weather';
+import { handleWeatherServiceError } from './errorHandlers';
 
 // Configuration
 const API_KEY = import.meta.env.VITE_OPENWEATHER_API_KEY;
@@ -59,25 +60,7 @@ export const getWeatherByCity = async (cityName: string): Promise<WeatherService
     
     return { success: true, data: weatherData };
   } catch (error) {
-    console.error('Weather service error:', error);
-    
-    // Provide user-friendly error messages
-    let errorMessage = 'Failed to fetch weather data';
-    
-    if (error instanceof Error) {
-      if (error.message.includes('API key')) {
-        errorMessage = 'Weather service configuration error. Please check API key.';
-      } else if (error.message.includes('city not found') || error.message.includes('404')) {
-        errorMessage = `City "${cityName}" not found. Please check the spelling and try again.`;
-      } else if (error.message.includes('401')) {
-        errorMessage = 'Invalid API key. Please check your configuration.';
-      } else if (error.message.includes('429')) {
-        errorMessage = 'Too many requests. Please try again in a moment.';
-      } else {
-        errorMessage = error.message;
-      }
-    }
-    
+    const errorMessage = handleWeatherServiceError(error, 'Failed to fetch weather data', cityName);
     return { success: false, error: errorMessage };
   }
 };
@@ -91,22 +74,7 @@ export const getWeatherByCoordinates = async (lat: number, lon: number): Promise
     
     return { success: true, data: weatherData };
   } catch (error) {
-    console.error('Weather service error:', error);
-    
-    let errorMessage = 'Failed to fetch weather data for your location';
-    
-    if (error instanceof Error) {
-      if (error.message.includes('API key')) {
-        errorMessage = 'Weather service configuration error. Please check API key.';
-      } else if (error.message.includes('401')) {
-        errorMessage = 'Invalid API key. Please check your configuration.';
-      } else if (error.message.includes('429')) {
-        errorMessage = 'Too many requests. Please try again in a moment.';
-      } else {
-        errorMessage = error.message;
-      }
-    }
-    
+    const errorMessage = handleWeatherServiceError(error, 'Failed to fetch weather data for your location');
     return { success: false, error: errorMessage };
   }
 };

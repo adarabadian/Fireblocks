@@ -67,15 +67,6 @@ export interface WeatherData {
   timestamp: number;
 }
 
-// Weather Theme Types
-export type WeatherTheme = 
-  | 'freezing'     // < 0°C
-  | 'cold'         // 0-10°C
-  | 'cool'         // 10-20°C
-  | 'mild'         // 20-25°C
-  | 'warm'         // 25-30°C
-  | 'hot';         // > 30°C
-
 // Activity Suggestion Types
 export interface ActivitySuggestion {
   id: string;
@@ -95,13 +86,4 @@ export interface WeatherServiceResponse {
   success: boolean;
   data?: WeatherData;
   error?: string;
-}
-
-// Search Types
-export interface CitySearchResult {
-  name: string;
-  country: string;
-  state?: string;
-  lat: number;
-  lon: number;
 } 
